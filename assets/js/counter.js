@@ -42,7 +42,7 @@ const canvas = utils.createElement("canvas", {
 
 const ctx = canvas.getContext("2d");
 const video = document.getElementById("videoElement");
-const snd = new Audio("/media/a-tone.wav");
+const snd = new Audio("./media/a-tone.wav");
 
 var stationType = document.getElementById("stationTypeSelector").value;
 document.getElementById("exercise_type").innerText = stationType;
