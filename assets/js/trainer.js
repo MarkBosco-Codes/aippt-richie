@@ -3,8 +3,8 @@ var defTimer = 60;
 var infTimer = false;
 var noSleep = new NoSleep();
 noSleep.enable();
-const beep_low = new Audio("/media/Beep_low.m4a");
-const beep_high = new Audio("/media/Beep_high.m4a");
+const beep_low = new Audio("./media/Beep_low.m4a");
+const beep_high = new Audio("./media/Beep_high.m4a");
 beep_low.volume = 0.1;
 beep_high.volume = 0.1;
 
