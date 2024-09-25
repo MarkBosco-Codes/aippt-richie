@@ -284,7 +284,7 @@ try {
         document.querySelector(".container").appendChild(canvas);
         document.getElementsByTagName("canvas")[0].style.display = "block";
         const detectorConfig = {
-          modelUrl: "./MoveNet/pose_model.json"
+          modelUrl: "/aippt-richie/MoveNet/pose_model.json"
         };
         poseDetection
           .createDetector(poseDetection.SupportedModels.MoveNet, detectorConfig)
