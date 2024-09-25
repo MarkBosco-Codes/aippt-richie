@@ -1,4 +1,4 @@
-// Main pose tracking logic - to be used with utils
+// Main pose tracking logic - to be used with utils 
 let isLoaded = false;
 let currentPosition = "UP";
 var pushUps = 0;
