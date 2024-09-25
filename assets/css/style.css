@@ -1,0 +1,566 @@
+@font-face {
+  font-family: Teko;
+  src: url(/media/Teko-VariableFont_wght.ttf);
+}
+
+* {
+    color:white;
+    background-color:black;
+    font-family: "Teko", sans-serif;
+    font-size:1.15em;
+    text-align:center;
+}
+.container{
+justify-content: center;
+align-items: center;
+    
+}
+
+@media (max-aspect-ratio: 2/3) {
+  #spacer{
+    /* height:40vh;
+    display: block !important; */
+  }
+  #exerciseLogOverlay{
+    /* margin-top:40vh !important; */
+  }
+ 
+  footer {
+    /* font-size: 4.8vw !important */
+  }
+
+  #controlPanel {
+    margin-top:5vh;
+
+  }
+  button:hover{
+    filter: brightness(1) !important
+}
+
+}
+
+
+.btn {
+    background-color: #daa520;
+    border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+button{
+    background-color: #daa520;
+        border-color: white;
+  border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+
+}
+
+  button:hover{
+    filter: brightness(0.7);
+}
+
+#splash {
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index:30;
+  font-size: 0.7em;
+}
+
+#instructions {
+  display: none;
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index:32;
+  font-size: 0.7em;
+}
+
+#exerciseLogOverlay {
+  max-height: 500px;
+  display:none;
+  z-index:28;
+  font-size: inherit;
+  overflow-y:scroll;
+  overflow-x: clip;
+  background-color: #282828;
+
+}
+#settingsOverlay {
+  max-height: 500px;
+  display:none;
+  z-index:28;
+  font-size: inherit;
+  overflow-y:scroll;
+  overflow-x: clip;
+  background-color: #282828;
+
+}
+
+#settingsOverlay *:not(button){
+  background-color: transparent;
+
+}
+
+#settingsOverlay input{
+  width: 4rem;
+}
+
+#settingsOverlay table,#settingsOverlay td{
+  text-align: justify;
+  border:0px;
+}
+
+
+.blur-background {
+  backdrop-filter: blur(10px);
+background-color: #ffffff00 !important;
+}
+
+.overlay{
+position: fixed;
+background-color: black;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+.preloader {
+animation: preload 1.3s linear;
+}
+
+@keyframes preload {
+  0% {opacity:100%;}
+  30% {opacity:100%;}
+100% {opacity:0%;}
+
+}
+
+.blinking {
+animation: blinker 1s infinite ;
+}
+
+@keyframes blinker {
+0%,20%,40%,60%,80%,100% {opacity: 0;}
+10%,30%,50%,70%,90% {opacity: 100;}
+}
+
+.bouncing {
+animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+40% {transform: translateY(-30px);} 
+60% {transform: translateY(-15px);} 
+} 
+
+    .crazyJumping {
+animation: crazyJump 1.5s infinite;
+}
+
+@keyframes crazyJump {
+0%,100% {transform: translate(-20px, -10px) rotate(15deg);} 
+10%,90% {transform: translate(0px, -5px) rotate(-15deg);} 
+20%,80% {transform: translate(5px, 5px) rotate(20deg);} 
+     30%,70% {transform: translate(12px, 7px) rotate(-7deg);} 
+     40%,60% {transform: translate(5px, -1px) rotate(15deg);} 
+     50% {transform: translate(-2px, 10px) rotate(15deg);} 
+
+} 
+input{
+    border-color:white;
+    border-style:solid;
+}
+
+table{
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+    border-collapse: collapse;
+}
+th, td{
+    font-size: 70%;
+     padding:10px;
+}
+table, th, td {
+    border-color: white;
+    border-style: solid;
+   
+  }
+
+img {
+    background-color: transparent;
+}
+
+h1{
+    font-size:7vh;
+    user-select:none;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+h2 {
+  font-size: 2em;
+  user-select: none;
+  margin: 0;
+}
+
+#controlPanel {
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+}
+
+
+.rainbow_hue_rotate {
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-animation: rainbow_hue_rotate 10s infinite linear;
+
+}
+@-webkit-keyframes rainbow_hue_rotate {
+from {
+-webkit-filter: hue-rotate(0deg);
+}
+to {
+-webkit-filter: hue-rotate(-360deg);
+}
+}
+html, body {
+    margin: 0;
+    height: 100%;
+}
+body {
+    display: inline-grid;
+    /* grid-gap: 10%; */
+    grid-template-columns: 1fr;
+    grid-template-areas: "main" "footer";
+    align-content: center;
+    /* grid-template-rows: 1fr 80px; */
+}
+
+footer {
+  color: #8e8e8e;
+  background-color: transparent;
+  /* grid-area: footer; */
+  position: fixed;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  z-index:100;
+  font-size: 2.5vh;
+}
+
+#stopBtn {
+    background-color: red;
+}
+
+
+
+button:disabled {
+    background-color: gray !important;
+}
+
+.back-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 100px;
+}
+
+.change-station-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 175px;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 250px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 20;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+/* 
+canvas{
+  width:55vw !important;
+
+} */
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+
+
+#video_wrapper {
+  position: relative;
+}
+
+.corner_indicator{
+  z-index: 10;
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  top: 0;
+  opacity: 0.8;
+}
+
+.lower_indicator{
+  z-index: 10;
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  bottom: 0;
+  opacity: 0.8;
+}
+
+#indicator_exercise {
+  width: 100%;
+}
+
+ #indicator_timer {
+  right:0;
+  padding: 0px 20px;
+}
+
+#indicator_position{
+  z-index: 10;
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  top: 0;
+  left:0;
+  right: 0;
+  opacity: 0.8;
+  background-color: transparent !important;
+}
+
+#indicator_warning {
+  z-index: 10;
+  position: absolute;
+  color: red;
+  font-size: 5em;
+  font-weight: bold;
+  top: 150px;
+  width: 100%;
+  opacity: 0.8;
+  background-color: transparent !important;
+}
+
+#exercise_type {
+  color: white;
+  left: 0;
+  right:0;
+  position: fixed;
+  /* margin-top:500px; */
+}
+
+#warning_code {
+  color: red;
+  left: 0;
+  right:0;
+  position: fixed;
+  /* margin-top:500px; */
+}
+
+#warning{
+  z-index: 10;
+  position: absolute;
+  color: white;
+  font-size: 4em;
+  top: 50vh;
+  opacity: 0.8;
+}
+
+.open_sidebar {
+  background-color: #555;
+  color: white;
+  border: none;
+  opacity: 0.8;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  z-index: 20;
+}
+
+.change-station-button {
+  z-index: 20;
+}
+
+.open-button {
+  z-index: 20;
+}
+
+.controlPanelRow{
+    margin-top: 2vh;
+    width:100%;
+    max-height: 100px;
+    display:inline-block; 
+    flex-direction:row;
+
+}
+
+.controlPanelButton{
+  justify-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  height: 18vw;
+  width: 18vw;
+  max-height: 10vh;
+
+  max-width: 10vh;
+  font-size: 80%;
+  display: inline-grid;
+  vertical-align: top;
+  align-items: center;
+}
+
+#stationTypeSelector {
+
+  color:white;
+  border-color: white;
+  border-style: solid;
+  background-color: black !important;
+}
+
+.buttonIcon{
+  height:30px;
+  background-color: transparent !important;
+
+}
+
+.row {
+  display: flex;
+  background-color: transparent;
+}
+
+.column {
+  flex: 50%;
+  background-color: transparent;
+}
+
+.guide_wrapper {
+  max-width: 640px;
+  margin: auto;
+}
+.table-date{
+  background-color:#4d4d4d;
+}
+
+.instr {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+.instr ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height:60vh;
+  margin-block: 2rem;
+  margin-inline: auto;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  background-color: transparent;
+  padding: 0;
+}
+
+.instr li {
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 3rem;
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.instr img{
+  width: 90vw;
+  max-width: 50vh;
+}
+
+.instr ul::-webkit-scrollbar{
+  display: none;
+}
+
+input[type=checkbox]:before { content:""; display:block; width:1.5em; height:1.5em; transform: translateY(-12px) translateX(12px);}
+
+
+
+/* images */
+input[type=checkbox]:before { background: url(/media/unchecked.png) transparent;margin-bottom:20px;background-size: contain;}
+input[type=checkbox]:checked:before { background: url(/media/checked.png) transparent;background-size: contain;display: block; }
+

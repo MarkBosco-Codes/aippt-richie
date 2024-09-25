@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- FORMERLY trainer.html -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/media/aiPPT_logo.png">
+
+
+    <!-- DEPS -->
+    <script src="./assets/deps/NoSleep.min.js"></script>
+
+    <!-- CDN DEPS -->
+    <script src="./assets/deps/tfjs-core.js"></script>
+    <script src="./assets/deps/tfjs-converter.js"></script>
+    <script src="./assets/deps/tfjs-backend-webgl.js"></script>
+    <script src="./assets/deps/pose-detection.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="/./assets/js/miniTrainer.min.js" defer></script>
+
+
+    <script src="/./assets/js/exerciseLog.js" defer></script>
+    <script src="/./assets/js/settingsPage.js" defer></script>
+    <script src="/./assets/js/carousel.js" defer></script>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="/./assets/css/style.css">
+
+    <title>aiPPT Statics Trainer</title>
+  </head>
+
+
+  <body>
+    <div class="overlay" id="preloader" style="display: none;z-index:99"><h1 id="overlayText" style="margin-top: 45vh;"></h1></div>
+      <div class="container" style="margin:auto">
+
+        <!-- Page Content -->
+        <!-- <div id="warning_code">Press "Start" to begin counting reps</div> -->
+        <div id="exercise_type">Pushups (Front)</div>
+        <video id="videoElement" autoplay="true" style="height:0px" playsInline="true" muted="true"></video>
+
+        <div>
+        <div id="error"></div>
+        <div id="indicator_position"></div> 
+        <div id="indicator_reps" class="corner_indicator">Reps: 0</div>
+        
+        <div id="indicator_warning"></div>
+        <div id="indicator_timer" class="corner_indicator"><span id="timer" style="font-size: inherit;">60</span>s</div>
+      </div>
+    </div>
+    <div id="controlPanel">
+      <span class="controlPanelRow">
+        <!-- <button class="controlPanelButton" id="backBtn" style="background-color:orangered" onclick="stopTrainer()"><img class="buttonIcon" src="\media\Back_Icon.png">
+          Back</button> -->
+          <button class="controlPanelButton" id="menuBtn" onclick="toggleMenu()"><img class="buttonIcon" src="\media\Instructions_Icon.png">
+         Info</button>
+        <button class="controlPanelButton" id="settingsBtn" style="background-color:gray" onclick="toggleSettings()"><img class="buttonIcon" src="\media\Settings_Icon.png">
+          Settings</button>
+        <button class="controlPanelButton" id="startStopBtn" style="background-color:rgb(0, 109, 0)"><img class="buttonIcon" src="\media\Play_Icon.png">
+          Start</button>
+
+        <button class="controlPanelButton" id="logBtn" onclick="ToggleExerciseLog()" ><img class="buttonIcon" src="\media\Log_Icon.png">
+          Log</button>
+      
+      </span>
+
+    </div>
+
+    <!-- overlay 0: preloader -->
+    <div style="z-index:28;background-color: rgb(71, 71, 71);" class="overlay" id="loadingPreloader">
+      <img src="\media\loadingIcon.gif" style="padding-top: 30vh;height:25vh;">
+    </div>
+
+    <!-- overlay 1: splash page -->
+    <div class="container overlay" id="splash">
+      <br>
+      <img src="\media\aiPPT_logo.png" style="padding-top: 20px;height:25vh" class="bouncing">
+      <h1 class="blur-background" style="margin-bottom: 25px;">Smart IPPT Training Tool</h1>
+      <button style="font-size: 5vh; margin-bottom: 2vh;" onclick=startTrainer()>&nbsp; Start &nbsp;</button>
+      <br>
+      <!-- <button style="font-size: 5vh;" onclick='window.location.href="#"'>&nbsp; Instructions &nbsp;</button> -->
+      <button style="font-size: 5vh;" onclick='document.getElementById("instructions").style.display="block"'>&nbsp; Instructions &nbsp;</button>
+    </div>
+
+    <!-- overlay 2: instructions page -->
+    <div class="container overlay" id="instructions">
+      <br>
+      <div class="instr">
+        <ul>
+          <li><img src="\media\caro1.png"></li>
+          <li><img src="\media\caro2.png"></li>
+          <li><img src="\media\caro3.png"></li>
+          <li><img src="\media\caro4.png"></li>
+          <li><img src="\media\caro5.png"></li>
+          <li><img src="\media\caro6.png"></li>
+          <li><img src="\media\caro7.png"></li>
+        </ul>
+      </div>
+      <button id="instrBackBtn" style="font-size: 5vh;" onclick='document.getElementById("instructions").style.display="none";document.getElementsByClassName("controlPanelRow")[0].style.visibility="visible"'>&nbsp; Back &nbsp;</button>
+    </div>
+
+    <!-- overlay 3: exercise log -->
+    <div class="container overlay" id="exerciseLogOverlay">
+      <span style="font-size:1.4em;background-color: transparent;">Your exercise log:</span>
+      <table style="width:80%">
+        <tbody id="logTableBody">
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- overlay 4: settings screen -->
+    <div class="container overlay" id="settingsOverlay">
+
+      
+      <br>
+
+      <table>
+
+        <tr><td colspan="2" style="text-align: center;font-size:1.4em;">General Settings</td></tr>
+        <tr>
+          <td>Exercise Type</td>
+          <td>
+            <select name="stationType" id="stationTypeSelector">
+              <option value="Pushups (Front View)">Pushups (Front)</option>
+              <option value="Pushups (Side View)">Pushups (Side)</option>
+              <option value="Knee Pushups (Side View)">Knee Pushups (Side)</option>
+              <option value="Situps (Side View)">Situps (Side)</option>
+              <option value="Pushups (no Back checking)">Pushups (no Back checking)</option>
+            </select>
+
+          </td>
+
+        </tr>
+        
+        <tr>
+          <td><input id="croppingAlgo" type="checkbox" checked/></td>
+          <td>Smart Cropping (experimental)</td>
+          
+        </tr>
+      
+
+
+        <tr><td colspan="2" style="text-align: center;font-size:1.4em;">My Target</td></tr>
+          <tr>
+            <td><input id="timeCheck" type="checkbox"   checked/></td>
+            <td><input type="number" id="timeInp" name="timeInp" value="60" min="0"/> Seconds</td>
+          </tr>
+          <tr>
+            <td><input id="repCheck" type="checkbox"/></td>
+            <td><input type="number" id="repsInp" name="repsInp" value="60" min="0" disabled/> Reps</td>
+          </tr>
+          
+
+      </table>
+
+      <button id="submitSettings" onclick="submitSettings()">Confirm</button>
+      <span style="background-color: transparent;" id="settingsError"></span>
+
+
+      <br>
+
+    
+
+ 
+    </div>
+
+    <footer>
+      Created by Pang Yan Wei &amp; Mark Bosco. Special thanks to 🥑.
+    </footer>
+  </body>
+</html>
