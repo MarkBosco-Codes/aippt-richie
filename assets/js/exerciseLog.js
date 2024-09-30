@@ -31,7 +31,7 @@ function ToggleExerciseLog(){
 
     document.getElementById("menuBtn").style.visibility='hidden';
 
-    document.getElementById("logBtn").innerHTML='<img class="buttonIcon" src="\\media\\Cross_Icon.png">Close';
+    document.getElementById("logBtn").innerHTML='<img class="buttonIcon" src="./media/Cross_Icon.png">Close';
     document.getElementById("video_wrapper").style.visibility='hidden';
     
     }
@@ -42,7 +42,7 @@ function ToggleExerciseLog(){
 
         document.getElementById("menuBtn").style.visibility='visible';
 
-        document.getElementById("logBtn").innerHTML='<img class="buttonIcon" src="\\media\\Log_Icon.png">Log';
+        document.getElementById("logBtn").innerHTML='<img class="buttonIcon" src="./media/Log_Icon.png">Log';
         document.getElementById("video_wrapper").style.visibility='visible';
     }
 }
