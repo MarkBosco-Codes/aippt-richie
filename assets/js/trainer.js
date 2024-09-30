@@ -136,7 +136,7 @@ function startTrainer() {
 function updateStop() {
     btn = document.getElementById("startStopBtn");
     btn.style.backgroundColor = "red";
-    btn.innerHTML = `<img class="buttonIcon" src="../media/Stop_Icon.png">Stop</button>`
+    btn.innerHTML = `<img class="buttonIcon" src="./media/Stop_Icon.png">Stop</button>`
     document.getElementById("menuBtn").disabled = true;
     document.getElementById("settingsBtn").disabled = true;
     document.getElementById("logBtn").disabled = true;
@@ -145,7 +145,7 @@ function updateStop() {
 function updateStart() {
     btn = document.getElementById("startStopBtn");
     btn.style.backgroundColor = "rgb(0, 109, 0)";
-    btn.innerHTML = `<img class="buttonIcon" src="../media/Play_Icon.png">Start</button>`
+    btn.innerHTML = `<img class="buttonIcon" src="./media/Play_Icon.png">Start</button>`
     document.getElementById("menuBtn").disabled = false;
     document.getElementById("settingsBtn").disabled = false;
     document.getElementById("logBtn").disabled = false;
