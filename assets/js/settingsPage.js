@@ -9,7 +9,7 @@ function toggleSettings(){
 
         document.getElementById("menuBtn").style.visibility='hidden';
 
-        document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src="\\media\\Cross_Icon.png">Close';
+        document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src=".\\assets\\media\\Cross_Icon.png">Close';
         document.getElementById("video_wrapper").style.visibility='hidden';
     } else {
         settingsOverlay.style.display='none';
@@ -18,7 +18,7 @@ function toggleSettings(){
 
         document.getElementById("menuBtn").style.visibility='visible';
 
-        document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src="\\media\\Settings_Icon.png">Settings';
+        document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src=".\\media\\Settings_Icon.png">Settings';
         document.getElementById("video_wrapper").style.visibility='visible';
     }
 }
@@ -58,7 +58,7 @@ function submitSettings() {
     document.getElementById("startStopBtn").style.visibility='visible';
     document.getElementById("logBtn").style.visibility='visible';
     document.getElementById("menuBtn").style.visibility='visible';
-    document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src="\\media\\Settings_Icon.png">Settings';
+    document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src=".\\assets\\media\\Settings_Icon.png">Settings';
     document.getElementById("video_wrapper").style.visibility='visible';
 }
 
@@ -78,7 +78,7 @@ function stopTrainer() {
     document.getElementById("startStopBtn").style.visibility='visible';
     document.getElementById("logBtn").style.visibility='visible';
     document.getElementById("stationTypeSelector").style.visibility='visible';
-    document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src="\\media\\Settings_Icon.png">Settings';
+    document.getElementById("settingsBtn").innerHTML='<img class="buttonIcon" src=".\\assets\\media\\Settings_Icon.png">Settings';
     document.getElementById("video_wrapper").style.visibility='visible';
 }
 
@@ -115,14 +115,14 @@ function toggleMenu() {
         document.getElementById("settingsBtn").style.visibility='hidden';
         document.getElementById("startStopBtn").style.visibility='hidden';
         document.getElementById("logBtn").style.visibility='hidden';
-        document.getElementById("menuBtn").innerHTML='<img class="buttonIcon" src="\\media\\Cross_Icon.png">Close';
+        document.getElementById("menuBtn").innerHTML='<img class="buttonIcon" src=".\\assets\\media\\Cross_Icon.png">Close';
         // document.getElementById("video_wrapper").style.visibility='hidden';
     } else {
         instrOverlay.style.display='none';
         document.getElementById("settingsBtn").style.visibility='visible';
         document.getElementById("startStopBtn").style.visibility='visible';
         document.getElementById("logBtn").style.visibility='visible';
-        document.getElementById("menuBtn").innerHTML='<img class="buttonIcon" src="\\media\\Instructions_Icon.png">Info';
+        document.getElementById("menuBtn").innerHTML='<img class="buttonIcon" src=".\\assets\\media\\Instructions_Icon.png">Info';
         // document.getElementById("video_wrapper").style.visibility='visible';
     }
 }
